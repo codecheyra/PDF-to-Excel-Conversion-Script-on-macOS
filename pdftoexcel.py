@@ -6,7 +6,7 @@ from tabula import read_pdf
 __version__ = "1.0.0"
 __author__ = "Arif"
 
-def pdf2excel(input_pdf, output_excel):
+def pdftoexcel(input_pdf, output_excel):
     current_path = os.path.dirname(os.path.abspath(__file__))
     tables  = read_pdf(os.path.join(current_path, input_pdf), pages="all", multiple_tables=True)
     combined_table = pd.concat(tables, ignore_index=True)
@@ -25,5 +25,5 @@ def main():
         print("Conversion is complete for all PDF files.")
 
 if __name__ == "__main__":
-    print("NOTE: All files PDF must in the same directory with pdf2excel.py")
+    print("NOTE: All files PDF must in the same directory with pdftoexcel.py")
     main()
