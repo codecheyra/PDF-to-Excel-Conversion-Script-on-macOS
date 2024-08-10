@@ -77,7 +77,7 @@ my_project
 For each PDF file in the directory, an Excel file with the same name (but with an `.xlsx` extension) will be created in the same directory.
 
 ## Note
-- The script assumes all PDF files are in the same directory as `pdf2excel.py`.
+- The script assumes all PDF files are in the same directory as `pdftoexcel.py`.
 - The conversion process will print messages indicating the status of each PDF file conversion.
 
 By following these steps, you should be able to successfully convert PDF files to Excel files on macOS.
