@@ -1,33 +1,92 @@
-# PDF to Excel Converter (pdf2excel.py)
+# PDF to Excel Conversion Script on macOS
 
-## Description
-The PDF to Excel Converter (pdf2excel.py) is a Python script that simplifies the process of converting PDF files into Excel (.xlsx) format. This tool leverages the `tabula` library for extracting tables from PDFs and the `pandas` library for combining and exporting the data into Excel spreadsheets.
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Step 1: Setup the Virtual Environment](#step-1-setup-the-virtual-environment)
+3. [Step 2: Install Dependencies](#step-2-install-dependencies)
+4. [Step 3: Python Script for PDF to Excel Conversion](#step-3-python-script-for-pdf-to-excel-conversion)
+5. [Step 4: Directory Structure](#step-4-directory-structure)
+6. [Step 5: Running the Script](#step-5-running-the-script)
+7. [Expected Output](#expected-output)
+8. [Note](#note)
 
-## Features
-- **Batch Conversion:** Convert multiple PDF files in the same directory to Excel format with a single execution.
-- **Full Page Extraction:** Extracts tables from all pages of the input PDF files.
-- **Efficient Data Handling:** Utilizes the `tabula` library to handle multiple tables within a PDF document efficiently.
-- **Automatic Output Naming:** Generates output Excel filenames based on the input PDF filenames.
-- **User-Friendly:** The script provides clear messages about the conversion process, making it easy for users to understand the outcome.
+## Prerequisites
+- Python 3.12.4
+- Homebrew
 
-## How to Use
-1. **Requirements:**
-   - Ensure that you have Python installed on your system.
-   - Install required libraries using: `pip install -r requirements.txt`.
+## Step 1: Setup the Virtual Environment
+1. **Open your terminal.**
 
-2. **Executing the Script:**
-   - Place the `pdf2excel.py` script in the same directory as the PDF files you want to convert.
-   - Open a terminal or command prompt in the script's directory.
+2. **Navigate to your project directory:**
+    ```sh
+    cd /path/to/my_project
+    ```
 
-3. **Run the Script:**
-   - Execute the script by running the command: `python pdf2excel.py`.
-   - Follow the instructions provided in the terminal.
+3. **Create a virtual environment:**
+    ```sh
+    python3 -m venv venv
+    ```
 
-4. **Output:**
-   - The converted Excel files (`.xlsx`) will be generated in the same directory as the PDF files.
+4. **Activate the virtual environment:**
+    ```sh
+    source venv/bin/activate
+    ```
+
+## Step 2: Install Dependencies
+1. **Create a `requirements.txt` file in your project directory with the following content:**
+    ```text
+    pandas==2.2.0
+    tabula_py==1.4.2
+    ```
+
+2. **Install the dependencies listed in `requirements.txt`:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+3. **Install additional dependencies and set up Java for tabula-py:**
+    ```sh
+    brew install openjdk
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    source ~/.bash_profile
+    pip install tabula-py
+    pip install --upgrade tabula-py
+    pip install openpyxl
+    pip install jpype1
+    pip install setuptools
+    ```
+
+## Step 3: Directory Structure
+Ensure your project directory (`my_project`) has the following structure:
+```
+my_project
+├── requirements.txt
+├── pdftoexcel.py
+└── *.pdf (all PDF files to be converted)
+```
+
+## Step 4: Running the Script
+1. **Make sure you are in the project directory and the virtual environment is activated.**
+
+2. **Run the script:**
+    ```sh
+    python3 pdf2excel.py
+    ```
+
+## Expected Output
+For each PDF file in the directory, an Excel file with the same name (but with an `.xlsx` extension) will be created in the same directory.
 
 ## Note
-- Ensure that all PDF files are located in the same directory as the `pdf2excel.py` script.
-- The script is designed to handle multiple PDF files in the specified directory.
+- The script assumes all PDF files are in the same directory as `pdf2excel.py`.
+- The conversion process will print messages indicating the status of each PDF file conversion.
 
-Feel free to contribute, report issues, or suggest improvements to enhance the functionality of this PDF to Excel converter. Happy converting!
+By following these steps, you should be able to successfully convert PDF files to Excel files on macOS.
+
+### Advantages/Pros:
+- It can extract multiple tables.
+- It can extract data from multiple pages.
+- It can work on multiple PDF files.
+
+### Disadvantages/Cons:
+- Data from imaged PDFs cannot be extracted.
+- Every PDF must contain at least one table.
