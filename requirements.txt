@@ -1,0 +1,11 @@
+pandas==2.2.0
+tabula_py==1.4.2
+
+
+# brew install openjdk
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# source ~/.bash_profile
+# pip install tabula-py
+# pip install openpyxl
+# pip install jpype1
+# pip install setuptools
